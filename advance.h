@@ -1,10 +1,8 @@
 #pragma once 
 
-// Header File: Advance 
-#include "bird.h"
-#include "point.h"
-
-
+// Forward Delegation
+class Bird; 
+class Point;
 class Advance 
 {
 public:
