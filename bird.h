@@ -9,6 +9,7 @@
 
 #pragma once
 #include "point.h"
+#include "advance.h"
 
 /**********************
  * BIRD
@@ -23,7 +24,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
-   
+   Advance * advanceStrategy; 
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
    
@@ -46,7 +47,14 @@ public:
 
    // special functions
    virtual void draw() = 0;
-   virtual void advance() = 0;
+   
+   void advance()
+   {
+        advanceStrategy->advance(*this, pt, points);
+   }
+   void setAdvanceStrategy(Advance * advanceStrategy) { this->advanceStrategy = advanceStrategy; }
+
+
 };
 
 /*********************************************
@@ -56,9 +64,10 @@ public:
 class Standard : public Bird
 {
 public:
-    Standard(double radius = 25.0, double speed = 5.0, int points = 10);
+    Standard(double radius = 25.0, double speed = 5.0, int points = 10){
+        setAdvanceStrategy(new Inertia());
+    }
     void draw();
-    void advance();
 };
 
 /*********************************************

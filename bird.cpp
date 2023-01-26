@@ -155,21 +155,21 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  * STANDARD ADVANCE
  * How the standard bird moves - inertia and drag
  *********************************************/
-void Standard::advance()
-{
-   // small amount of drag
-   v *= 0.995;
+// void Standard::advance()
+// {
+//    // small amount of drag
+//    v *= 0.995;
 
-   // inertia
-   pt.add(v);
+//    // inertia
+//    pt.add(v);
 
-   // out of bounds checker
-   if (isOutOfBounds())
-   {
-      kill();
-      points *= -1; // points go negative when it is missed!
-   }
-}
+//    // out of bounds checker
+//    if (isOutOfBounds())
+//    {
+//       kill();
+//       points *= -1; // points go negative when it is missed!
+//    }
+// }
 
 /*********************************************
  * FLOATER ADVANCE
