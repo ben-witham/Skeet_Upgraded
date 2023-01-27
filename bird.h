@@ -20,6 +20,12 @@ class Movement;
  **********************/
 class Bird
 {
+   friend class AntiGravity;
+   friend class Gravity;
+   friend class Drag;
+   friend class CrazyMove;
+   friend class Increment;
+
 protected:
    static Point dimensions; // size of the screen
    Point pt;                  // position of the flyer
@@ -31,7 +37,7 @@ protected:
    
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
-   
+
    // setters
    void operator=(const Point    & rhs) { pt = rhs;    }
    void operator=(const Velocity & rhs) { v = rhs;     }
@@ -51,8 +57,10 @@ public:
 
    // special functions
    virtual void draw() = 0;
-   virtual void advance() = 0;
+   void advance();
    virtual void addMovement() = 0;
+
+   void setVelocity(Velocity v) { this->v = v; }
 };
 
 /*********************************************
@@ -64,7 +72,7 @@ class Standard : public Bird
 public:
     Standard(double radius = 25.0, double speed = 5.0, int points = 10);
     void draw();
-    void advance();
+    //void advance();
     void addMovement();
 };
 
@@ -77,7 +85,7 @@ class Floater : public Bird
 public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
-    void advance();
+    //void advance();
     void addMovement();
 };
 
@@ -90,7 +98,7 @@ class Crazy : public Bird
 public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
-    void advance();
+    //void advance();
     void addMovement();
 };
 
@@ -103,6 +111,6 @@ class Sinker : public Bird
 public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
-    void advance();
+    //void advance();
     void addMovement();
 };

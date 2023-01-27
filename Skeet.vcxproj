@@ -38,6 +38,7 @@
     <ClInclude Include="gun.h" />
     <ClInclude Include="movement.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="random.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="skeet.h" />
     <ClInclude Include="time.h" />

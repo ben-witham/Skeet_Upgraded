@@ -27,11 +27,11 @@ public:
 class Drag : public Movement
 {
 public:
-   Drag(float newDrag) : drag(newDrag) {}
+   Drag(double newDrag) : drag(newDrag) {}
    void applyMovement(Bird* pBird);
 
 private:
-   float drag;
+   double drag;
 };
 
 class Increment : public Movement
