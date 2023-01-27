@@ -33,6 +33,7 @@
 #endif // _WIN32
 
 
+
 /***************************************************************/
 /***************************************************************/
 /*                             MISC.                           */
@@ -83,6 +84,9 @@ Standard::Standard(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+
+   // add all the movements into the set
+   addMovement();
 }
 
 /******************************************************************
@@ -103,6 +107,9 @@ Floater::Floater(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+   
+   // add all the movements into the set
+   addMovement();
 }
 
 /******************************************************************
@@ -123,6 +130,9 @@ Sinker::Sinker(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+
+   // add all the movements into the set
+   addMovement();
 }
 
 /******************************************************************
@@ -143,6 +153,9 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
 
    // set the size
    this->radius = radius;
+
+   // add all the movements into the set
+   addMovement();
 }
 
  /***************************************************************/
@@ -336,4 +349,45 @@ void Sinker::draw()
       drawDisk(pt, radius - 0.0, 0.0, 0.0, 0.8);
       drawDisk(pt, radius - 4.0, 0.0, 0.0, 0.0);
    }
+}
+
+/*********************************************
+ * STANDARD ADD MOVEMENT
+ * Place all nessasary movements into the set
+ *********************************************/
+void Standard::addMovement()
+{
+   movements.push_back(new Drag(0.995));
+   movements.push_back(new Increment());
+}
+
+/*********************************************
+ * FLOATER ADD MOVEMENT
+ * Place all nessasary movements into the set
+ *********************************************/
+void Floater::addMovement()
+{
+   movements.push_back(new Drag(0.990));
+   movements.push_back(new Increment());
+   movements.push_back(new AntiGravity());
+}
+
+/*********************************************
+ * CRAZY ADD MOVEMENT
+ * Place all nessasary movements into the set
+ *********************************************/
+void Crazy::addMovement()
+{
+   movements.push_back(new CrazyMove());
+   movements.push_back(new Increment());
+}
+
+/*********************************************
+ * SINKER ADD MOVEMENT
+ * Place all nessasary movements into the set
+ *********************************************/
+void Sinker::addMovement()
+{
+   movements.push_back(new Gravity());
+   movements.push_back(new Increment());
 }

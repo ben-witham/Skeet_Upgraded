@@ -8,7 +8,11 @@
  ************************************************************************/
 
 #pragma once
+#include <vector>
 #include "point.h"
+#include "movement.h"
+
+class Movement;
 
 /**********************
  * BIRD
@@ -23,6 +27,7 @@ protected:
    double radius;             // the size (radius) of the flyer
    bool dead;                 // is this flyer dead?
    int points;                // how many points is this worth?
+   std::vector<Movement*> movements;
    
 public:
    Bird() : dead(false), points(0), radius(1.0) { }
@@ -47,6 +52,7 @@ public:
    // special functions
    virtual void draw() = 0;
    virtual void advance() = 0;
+   virtual void addMovement() = 0;
 };
 
 /*********************************************
@@ -59,6 +65,7 @@ public:
     Standard(double radius = 25.0, double speed = 5.0, int points = 10);
     void draw();
     void advance();
+    void addMovement();
 };
 
 /*********************************************
@@ -71,6 +78,7 @@ public:
     Floater(double radius = 30.0, double speed = 5.0, int points = 15);
     void draw();
     void advance();
+    void addMovement();
 };
 
 /*********************************************
@@ -83,6 +91,7 @@ public:
     Crazy(double radius = 30.0, double speed = 4.5, int points = 30);
     void draw();
     void advance();
+    void addMovement();
 };
 
 /*********************************************
@@ -95,4 +104,5 @@ public:
     Sinker(double radius = 30.0, double speed = 4.5, int points = 20);
     void draw();
     void advance();
+    void addMovement();
 };

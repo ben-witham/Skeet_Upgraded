@@ -24,6 +24,7 @@
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gun.cpp" />
+    <ClCompile Include="movement.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="score.cpp" />
     <ClCompile Include="skeet.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="bird.h" />
     <ClInclude Include="effect.h" />
     <ClInclude Include="gun.h" />
+    <ClInclude Include="movement.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="skeet.h" />
