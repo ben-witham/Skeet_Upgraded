@@ -149,16 +149,11 @@ Crazy::Crazy(double radius, double speed, int points) : Bird()
  /***************************************************************/
 
 /*********************************************
- * STANDARD ADVANCE
+ * Bird ADVANCE
  * How the standard bird moves - inertia and drag
  *********************************************/
 void Bird::advance()
 {
-   //// small amount of drag
-   //v *= 0.995;
-
-   //// inertia
-   //pt.add(v);
 
    for (auto it : movements)
       it->applyMovement(this);
@@ -171,72 +166,7 @@ void Bird::advance()
    }
 }
 
-///*********************************************
-// * FLOATER ADVANCE
-// * How the floating bird moves: strong drag and anti-gravity
-// *********************************************/
-//void Floater::advance()
-//{
-//   // large amount of drag
-//   v *= 0.990;
-//
-//   // inertia
-//   pt.add(v);
-//
-//   // anti-gravity
-//   v.addDy(0.05);
-//
-//   // out of bounds checker
-//   if (isOutOfBounds())
-//   {
-//      kill();
-//      points *= -1; // points go negative when it is missed!
-//   }
-//}
-//
-///*********************************************
-// * CRAZY ADVANCE
-// * How the crazy bird moves, every half a second it changes direciton
-// *********************************************/
-//void Crazy::advance()
-//{
-//   // erratic turns eery half a second or so
-//   if (randomInt(0, 15) == 0)
-//   {
-//      v.addDy(randomFloat(-1.5, 1.5));
-//      v.addDx(randomFloat(-1.5, 1.5));
-//   }
-//
-//   // inertia
-//   pt.add(v);
-//
-//   // out of bounds checker
-//   if (isOutOfBounds())
-//   {
-//      kill();
-//      points *= -1; // points go negative when it is missed!
-//   }
-//}
-//
-///*********************************************
-// * SINKER ADVANCE
-// * How the sinker bird moves, no drag but gravity
-// *********************************************/
-//void Sinker::advance()
-//{
-//   // gravity
-//   v.addDy(-0.07);
-//
-//   // inertia
-//   pt.add(v);
-//
-//   // out of bounds checker
-//   if (isOutOfBounds())
-//   {
-//      kill();
-//      points *= -1; // points go negative when it is missed!
-//   }
-//}
+
 
 /***************************************************************/
 /***************************************************************/
