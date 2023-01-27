@@ -47,6 +47,8 @@ public:
    bool isDead()           const { return dead;   }
    Point getPosition()     const { return pt;     }
    Velocity getVelocity()  const { return v;      }
+   Point& getPosition()          { return pt; }
+   Velocity& getVelocity()       { return v; }
    double getRadius()      const { return radius; }
    int getPoints() const { return points; }
    bool isOutOfBounds() const

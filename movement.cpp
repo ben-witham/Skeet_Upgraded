@@ -10,7 +10,7 @@
  ************************************************/
 void AntiGravity::applyMovement(Bird* pBird)
 {
-   pBird->v.addDy(0.05);
+   pBird->getVelocity().addDy(0.05);
 }
 
 /************************************************
@@ -18,7 +18,7 @@ void AntiGravity::applyMovement(Bird* pBird)
  ************************************************/
 void Gravity::applyMovement(Bird* pBird)
 {
-   pBird->v.addDy(-0.07);
+   pBird->getVelocity().addDy(-0.07);
 }
 
 /************************************************
@@ -26,7 +26,7 @@ void Gravity::applyMovement(Bird* pBird)
  ************************************************/
 void Drag::applyMovement(Bird* pBird)
 {
-   pBird->v *= drag;
+   pBird->getVelocity() *= drag;
 }
 
 /************************************************
@@ -34,7 +34,7 @@ void Drag::applyMovement(Bird* pBird)
  ************************************************/
 void Increment::applyMovement(Bird* pBird)
 {
-   pBird->pt.add(pBird->v);
+   pBird->getPosition().add(pBird->getVelocity());
 }
 
 /************************************************
@@ -44,8 +44,8 @@ void CrazyMove::applyMovement(Bird* pBird)
 {
    if (randomInt(0, 15) == 0)
    {
-      pBird->v.addDy(randomFloat(-1.5, 1.5));
-      pBird->v.addDx(randomFloat(-1.5, 1.5));
+      pBird->getVelocity().addDy(randomFloat(-1.5, 1.5));
+      pBird->getVelocity().addDx(randomFloat(-1.5, 1.5));
    }
 }
 
